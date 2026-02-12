@@ -3,1105 +3,520 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Бриф — Консультация по карьерной стратегии | КАЧАЛКИН PRO</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Бриф — Карьерная стратегия | КАЧАЛКИН PRO</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --pink: #E91E8C;
-  --purple: #6B2FA0;
-  --gradient: linear-gradient(135deg, #E91E8C 0%, #9B2FAF 50%, #6B2FA0 100%);
-  --bg: #F8F6FB;
-  --card: #FFFFFF;
-  --text: #1A1A2E;
-  --text-mid: #4A4A60;
-  --text-light: #8888A0;
-  --border: #EBE6F2;
-  --input-bg: #FCFAFE;
-  --focus-ring: rgba(233, 30, 140, 0.12);
-  --green: #22C55E;
-  --red: #EF4444;
-  --shadow-sm: 0 1px 4px rgba(107, 47, 160, 0.05);
-  --shadow-md: 0 4px 24px rgba(107, 47, 160, 0.07);
-  --radius: 16px;
-  --radius-sm: 12px;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#9B2FAC;--accent-light:#B044BF;--accent-bg:rgba(155,47,172,.06);
+  --accent-ring:rgba(155,47,172,.1);--bg:#FAFAF7;--card:#FFFFFF;
+  --text:#1F2017;--text-mid:#555548;--text-light:#93937F;
+  --border:#E5E4DB;--input-bg:#FDFDFB;--green:#4A8B6A;--red:#C45D4D;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.04);--shadow-md:0 4px 16px rgba(0,0,0,.06);
+  --radius:16px;--radius-sm:10px
 }
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased}
 
-html { scroll-behavior: auto; }
-
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* === HEADER — collapsible === */
-.header {
-  background: var(--gradient);
-  position: relative;
-  overflow: hidden;
-  transition: max-height 0.5s ease, padding 0.5s ease;
-}
-
-.header::before {
-  content: '';
-  position: absolute;
-  top: -40%; right: -15%;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  border-radius: 50%;
-}
-
-.header-inner {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 44px 28px 40px;
-  position: relative;
-  z-index: 1;
-}
-
-.header.compact .header-inner { padding: 20px 28px 16px; }
-.header.compact .header-desc,
-.header.compact .header h1 { display: none; }
-
-.logo-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 36px;
-}
-
-.header.compact .logo-row { margin-bottom: 0; }
-
-.logo-icon {
-  width: 56px; height: 56px;
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(12px);
-  border-radius: 13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255,255,255,0.22);
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-}
-
-.header.compact .logo-icon { width: 40px; height: 40px; }
-
-.logo-icon span {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: 17px;
-  color: #fff;
-}
-
-.header.compact .logo-icon span { font-size: 13px; }
-
-.logo-name {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 16px;
-  color: #fff;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-.logo-pro {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: 22px;
-  color: rgba(255,255,255,0.92);
-}
-
-.header.compact .logo-name { font-size: 13px; letter-spacing: 2px; }
-.header.compact .logo-pro { font-size: 16px; }
-
-.header h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 14px;
-  line-height: 1.3;
-}
-
-.header-desc {
-  font-size: 14.5px;
-  color: rgba(255,255,255,0.82);
-  line-height: 1.75;
-  max-width: 540px;
-}
+/* === HEADER === */
+.header{background:linear-gradient(135deg,#E91E8C 0%,#9B2FAC 50%,#6B2FA0 100%);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-60%;right:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 70%);border-radius:50%}
+.header-inner{max-width:640px;margin:0 auto;padding:36px 24px 32px;position:relative;z-index:1}
+.logo-row{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.logo-icon{width:44px;height:44px;background:rgba(255,255,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.15);flex-shrink:0}
+.logo-icon span{font-weight:700;font-size:13px;color:#fff;letter-spacing:.5px}
+.logo-name{font-weight:700;font-size:13px;color:rgba(255,255,255,.8);letter-spacing:2.5px;text-transform:uppercase}
+.logo-pro{font-family:'DM Serif Display',serif;font-size:18px;color:rgba(255,255,255,.95)}
+.header h1{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:#fff;margin-bottom:10px;line-height:1.35}
+.header-desc{font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.7;max-width:480px}
 
 /* === STICKY PROGRESS === */
-.progress-wrap {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(235,230,242,0.6);
-}
+.progress-wrap{position:sticky;top:0;z-index:100;background:rgba(250,250,247,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.progress-inner{max-width:640px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:12px}
+.progress-track{flex:1;height:4px;background:#E8E7DE;border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.progress-meta{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.progress-text{font-size:11px;font-weight:600;color:var(--accent);white-space:nowrap}
+.save-badge{font-size:10px;font-weight:500;color:var(--green);opacity:0;transition:opacity .3s;white-space:nowrap}
+.save-badge.show{opacity:1}
 
-.progress-inner {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 10px 28px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+/* === ACCORDION BLOCKS === */
+.blocks{max-width:640px;margin:0 auto;padding:16px 24px 48px}
 
-.progress-track {
-  flex: 1;
-  height: 5px;
-  background: #EDE8F5;
-  border-radius: 3px;
-  overflow: hidden;
-}
+.block{margin-bottom:12px;border-radius:var(--radius);overflow:hidden;border:1.5px solid var(--border);background:var(--card);box-shadow:var(--shadow-sm);transition:box-shadow .3s}
+.block.open{box-shadow:var(--shadow-md)}
 
-.progress-fill {
-  height: 100%;
-  background: var(--gradient);
-  border-radius: 3px;
-  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
+.block-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;transition:background .2s}
+.block-header:hover{background:rgba(155,47,172,.02)}
+.block-header:active{background:rgba(155,47,172,.04)}
 
-.progress-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
+.block-left{display:flex;align-items:center;gap:14px}
+.block-icon{width:40px;height:40px;background:var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;transition:transform .3s}
+.block.open .block-icon{transform:scale(1.05)}
+.block-title{font-family:'DM Serif Display',serif;font-size:17px;color:var(--text)}
+.block-subtitle{font-size:11.5px;color:var(--text-light);margin-top:1px}
 
-.progress-text {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--purple);
-  white-space: nowrap;
-}
+.block-right{display:flex;align-items:center;gap:10px}
+.block-counter{font-size:11px;font-weight:600;color:var(--text-light);background:#F0EFEA;padding:3px 10px;border-radius:100px;white-space:nowrap}
+.block-counter.complete{color:#9B2FAC;background:rgba(155,47,172,.08)}
+.block-arrow{width:20px;height:20px;color:var(--text-light);transition:transform .3s;flex-shrink:0}
+.block.open .block-arrow{transform:rotate(180deg)}
 
-.save-badge {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--green);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 3px;
-}
+.block-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.block.open .block-body{max-height:none}
+.block-content{padding:0 22px 22px}
 
-.save-badge.show { opacity: 1; }
-
-/* === SECTION DOTS (mini-progress under tabs) === */
-.section-dots {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 6px 28px 0;
-  display: flex;
-  gap: 4px;
-}
-
-.s-dot {
-  flex: 1;
-  height: 3px;
-  border-radius: 2px;
-  background: #EDE8F5;
-  transition: background 0.3s ease;
-}
-
-.s-dot.done { background: var(--gradient); }
-.s-dot.active { background: var(--pink); opacity: 0.5; }
-
-/* === TABS === */
-.tabs-scroll {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 14px 28px 0;
-  display: flex;
-  gap: 6px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.tabs-scroll::-webkit-scrollbar { display: none; }
-
-.tab-btn {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11.5px;
-  font-weight: 600;
-  padding: 7px 15px;
-  border-radius: 100px;
-  border: 1.5px solid var(--border);
-  background: var(--card);
-  color: var(--text-light);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.25s ease;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  position: relative;
-}
-
-.tab-btn:hover { border-color: var(--pink); color: var(--pink); }
-
-.tab-btn.active {
-  background: var(--gradient);
-  color: #fff;
-  border-color: transparent;
-  box-shadow: 0 3px 14px rgba(233, 30, 140, 0.28);
-}
-
-.tab-btn .cm { margin-left: 3px; font-size: 10px; }
-
-/* First visit hint */
-.tabs-hint {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 6px 28px 0;
-  font-size: 11px;
-  color: var(--text-light);
-  text-align: center;
-  opacity: 0.7;
-  transition: opacity 0.5s ease;
-}
-
-.tabs-hint.hidden { opacity: 0; height: 0; padding: 0; overflow: hidden; }
-
-/* === FORM === */
-.form-area {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 16px 28px 48px;
-}
-
-.section { animation: slideUp 0.3s ease forwards; }
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.section-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  padding-top: 4px;
-}
-
-.section-head-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.section-badge {
-  width: 42px; height: 42px;
-  background: var(--gradient);
-  border-radius: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 19px;
-  box-shadow: 0 4px 14px rgba(233, 30, 140, 0.2);
-  flex-shrink: 0;
-}
-
-.section-name {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 19px;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.section-qty {
-  font-size: 12px;
-  color: var(--text-light);
-  margin-top: 2px;
-}
-
-/* Section mini-progress */
-.section-progress {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text-light);
-  background: var(--bg);
-  padding: 4px 12px;
-  border-radius: 100px;
-  white-space: nowrap;
-}
-
-.section-progress.complete {
-  color: var(--green);
-  background: rgba(34, 197, 94, 0.08);
-}
+/* Sub-section divider inside block */
+.sub-divider{display:flex;align-items:center;gap:10px;margin:20px 0 14px;padding-top:4px}
+.sub-divider-line{flex:1;height:1px;background:var(--border)}
+.sub-divider-text{font-size:11px;font-weight:600;color:var(--text-light);text-transform:uppercase;letter-spacing:1.2px;white-space:nowrap}
 
 /* === QUESTION CARD === */
-.q-card {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 24px 26px;
-  margin-bottom: 12px;
-  border: 1.5px solid var(--border);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  box-shadow: var(--shadow-sm);
-  position: relative;
-}
+.q-card{background:var(--bg);border-radius:12px;padding:18px 20px;margin-bottom:10px;border:1.5px solid transparent;transition:border-color .25s,box-shadow .25s;position:relative}
+.q-card:focus-within{border-color:rgba(155,47,172,.2);box-shadow:0 2px 12px rgba(0,0,0,.04);background:var(--card)}
+.q-card.filled{background:rgba(155,47,172,.015);border-color:rgba(155,47,172,.08)}
 
-.q-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 3px; height: 0;
-  background: var(--gradient);
-  border-radius: 3px 0 0 3px;
-  transition: height 0.4s ease;
-}
+.q-num{font-size:9.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+.q-label-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:2px}
+.q-label{font-size:13.5px;font-weight:600;color:var(--text);line-height:1.45;cursor:default}
+.q-check{color:var(--green);font-size:12px;flex-shrink:0;opacity:0;transition:opacity .25s;margin-top:2px}
+.q-card.filled .q-check{opacity:1}
+.q-hint{font-size:11.5px;color:var(--text-light);margin-bottom:10px;line-height:1.5;min-height:4px}
 
-.q-card:focus-within {
-  border-color: rgba(233, 30, 140, 0.25);
-  box-shadow: var(--shadow-md);
-}
+textarea,input[type="text"]{width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--input-bg);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);line-height:1.6;transition:border-color .2s,box-shadow .2s;outline:none;-webkit-appearance:none}
+textarea{min-height:76px;resize:vertical}
+input[type="text"]{height:44px}
+textarea::placeholder,input::placeholder{color:#C2C1B5}
+textarea:focus,input[type="text"]:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-ring);background:#fff}
 
-.q-card:focus-within::before { height: 100%; }
+/* === CHIPS === */
+.chips-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chip{font-size:12.5px;font-weight:500;padding:6px 14px;border-radius:100px;border:1.5px solid var(--border);background:var(--card);color:var(--text-mid);cursor:pointer;transition:all .2s;outline:none;-webkit-tap-highlight-color:transparent;user-select:none}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+.chip-custom-row{display:flex;gap:6px;align-items:center;margin-top:4px}
+.chip-custom-row input{flex:1;height:38px;font-size:12.5px;padding:8px 12px}
+.chip-add-btn{font-size:12px;font-weight:600;padding:8px 14px;border-radius:100px;border:none;background:var(--accent-bg);color:var(--accent);cursor:pointer;white-space:nowrap;transition:all .2s}
+.chip-add-btn:hover{background:var(--accent);color:#fff}
 
-.q-card.filled {
-  border-color: rgba(107, 47, 160, 0.15);
-  background: linear-gradient(135deg, rgba(233,30,140,0.015), rgba(107,47,160,0.025));
-}
+/* === TOGGLE === */
+.toggle-row{display:flex;gap:8px;margin-bottom:10px}
+.toggle-btn{flex:1;font-size:13px;font-weight:600;padding:14px 10px 10px;border-radius:12px;border:1.5px solid var(--border);background:var(--card);color:var(--text-mid);cursor:pointer;transition:all .2s;text-align:center;outline:none;-webkit-tap-highlight-color:transparent}
+.toggle-btn:hover{border-color:var(--accent);color:var(--accent)}
+.toggle-btn.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+.toggle-emoji{font-size:20px;display:block;margin-bottom:4px}
 
-.q-card.filled::before { height: 100%; opacity: 0.5; }
+/* === SUBMIT ROW === */
+.submit-row{max-width:640px;margin:0 auto;padding:0 24px 48px;text-align:center}
+.btn-send{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:14px 40px;border-radius:100px;border:none;background:var(--accent);color:#fff;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;-webkit-tap-highlight-color:transparent}
+.btn-send:hover{background:var(--accent-light);transform:translateY(-1px)}
+.btn-send:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+.submit-hint{font-size:11.5px;color:var(--text-light);margin-top:10px}
 
-.q-num {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--pink);
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  margin-bottom: 6px;
-}
+/* === MODAL === */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(31,32,23,.35);backdrop-filter:blur(4px);z-index:1000;justify-content:center;align-items:center;padding:20px}
+.modal-overlay.show{display:flex}
+.modal-box{background:var(--card);border-radius:18px;padding:28px 24px;max-width:380px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.12);animation:slideUp .3s;text-align:center}
+.modal-icon{font-size:30px;margin-bottom:12px}
+.modal-title{font-family:'DM Serif Display',serif;font-size:17px;margin-bottom:8px}
+.modal-text{font-size:13px;color:var(--text-mid);line-height:1.6;margin-bottom:20px}
+.modal-text .warn{color:var(--red);font-weight:500}
+.modal-buttons{display:flex;gap:8px;justify-content:center}
+.modal-btn{font-size:13px;font-weight:600;padding:9px 20px;border-radius:100px;border:none;cursor:pointer}
+.modal-btn-cancel{background:#F0EFEA;color:var(--text-mid)}
+.modal-btn-confirm{background:var(--accent);color:#fff}
 
-.q-label-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 3px;
-}
+.overlay{display:none;position:fixed;inset:0;background:rgba(250,250,247,.85);backdrop-filter:blur(6px);z-index:1001;justify-content:center;align-items:center}
+.overlay.show{display:flex}
+.spinner{width:40px;height:40px;border:3px solid #E8E7DE;border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 14px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.spinner-label{font-size:14px;font-weight:500;color:var(--text-mid);text-align:center}
 
-.q-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.5;
-}
+.error-banner{display:none;max-width:640px;margin:10px auto 0;padding:12px 18px;background:rgba(196,93,77,.06);border:1.5px solid rgba(196,93,77,.18);border-radius:var(--radius-sm);color:var(--red);font-size:13px;font-weight:500;text-align:center;animation:slideUp .3s}
+.error-banner.show{display:block}
 
-label.q-label { cursor: default; }
+.done{display:none;max-width:640px;margin:0 auto;padding:80px 24px;text-align:center;animation:slideUp .5s}
+.done.show{display:block}
+.done-circle{width:72px;height:72px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:30px;color:#fff}
+.done h2{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;margin-bottom:10px}
+.done p{font-size:14px;color:var(--text-mid);max-width:400px;margin:0 auto;line-height:1.7}
 
-.q-filled-check {
-  color: var(--green);
-  font-size: 14px;
-  flex-shrink: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  margin-top: 3px;
-}
+.footer{text-align:center;padding:20px 24px 40px;max-width:640px;margin:0 auto}
+.footer-bar{width:32px;height:2px;background:var(--accent);border-radius:1px;margin:0 auto 12px;opacity:.3}
+.footer p{font-size:10px;font-weight:500;color:var(--text-light);letter-spacing:1px;text-transform:uppercase}
 
-.q-card.filled .q-filled-check { opacity: 1; }
-
-.q-hint {
-  font-size: 12.5px;
-  color: var(--text-light);
-  margin-bottom: 14px;
-  line-height: 1.55;
-}
-
-.q-hint:empty { margin-bottom: 14px; }
-
-textarea, input[type="text"] {
-  width: 100%;
-  padding: 13px 15px;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--input-bg);
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: var(--text);
-  line-height: 1.65;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-  outline: none;
-  -webkit-appearance: none;
-}
-
-textarea { min-height: 88px; resize: vertical; }
-input[type="text"] { height: 48px; }
-
-textarea::placeholder, input::placeholder { color: #C0BCD0; }
-
-textarea:focus, input[type="text"]:focus {
-  border-color: var(--pink);
-  background: #fff;
-  box-shadow: 0 0 0 4px var(--focus-ring);
-}
-
-/* === NAV BUTTONS === */
-.nav-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 24px;
-  gap: 12px;
-}
-
-.btn {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  border-radius: 100px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.btn-back {
-  font-size: 13px;
-  padding: 11px 22px;
-  background: var(--card);
-  color: var(--text-light);
-  border: 1.5px solid var(--border);
-}
-.btn-back:hover { border-color: var(--purple); color: var(--purple); }
-
-.btn-fwd {
-  font-size: 13px;
-  padding: 11px 26px;
-  background: var(--gradient);
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(233, 30, 140, 0.22);
-}
-.btn-fwd:hover { box-shadow: 0 6px 24px rgba(233, 30, 140, 0.32); transform: translateY(-1px); }
-
-.btn-send {
-  font-size: 14px;
-  padding: 13px 32px;
-  background: var(--gradient);
-  color: #fff;
-  box-shadow: 0 4px 20px rgba(233, 30, 140, 0.25);
-}
-.btn-send:hover { box-shadow: 0 6px 28px rgba(233, 30, 140, 0.38); transform: translateY(-1px); }
-.btn-send:disabled { opacity: 0.55; cursor: not-allowed; transform: none !important; box-shadow: none; }
-
-/* === CONFIRM MODAL === */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(26, 26, 46, 0.4);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.modal-overlay.show { display: flex; }
-
-.modal-box {
-  background: var(--card);
-  border-radius: 20px;
-  padding: 32px 28px;
-  max-width: 420px;
-  width: 100%;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-  animation: slideUp 0.3s ease;
-  text-align: center;
-}
-
-.modal-icon {
-  font-size: 36px;
-  margin-bottom: 16px;
-}
-
-.modal-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-
-.modal-text {
-  font-size: 13.5px;
-  color: var(--text-mid);
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-
-.modal-text .warn { color: var(--red); font-weight: 500; }
-
-.modal-buttons {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-.modal-btn {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 10px 24px;
-  border-radius: 100px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.modal-btn-cancel {
-  background: var(--bg);
-  color: var(--text-mid);
-}
-
-.modal-btn-confirm {
-  background: var(--gradient);
-  color: #fff;
-  box-shadow: 0 3px 12px rgba(233, 30, 140, 0.2);
-}
-
-/* === SENDING OVERLAY === */
-.overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(248,246,251,0.88);
-  backdrop-filter: blur(6px);
-  z-index: 1001;
-  justify-content: center;
-  align-items: center;
-}
-.overlay.show { display: flex; }
-
-.spinner {
-  width: 44px; height: 44px;
-  border: 3px solid #EDE8F5;
-  border-top-color: var(--pink);
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-  margin: 0 auto 16px;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.spinner-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-mid);
-  text-align: center;
-}
-
-/* === ERROR === */
-.error-banner {
-  display: none;
-  max-width: 700px;
-  margin: 12px auto 0;
-  padding: 14px 20px;
-  background: rgba(239, 68, 68, 0.06);
-  border: 1.5px solid rgba(239, 68, 68, 0.2);
-  border-radius: var(--radius-sm);
-  color: var(--red);
-  font-size: 13px;
-  font-weight: 500;
-  text-align: center;
-  animation: slideUp 0.3s ease;
-}
-.error-banner.show { display: block; }
-
-/* === DONE === */
-.done {
-  display: none;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 80px 28px;
-  text-align: center;
-  animation: slideUp 0.5s ease;
-}
-.done.show { display: block; }
-
-.done-circle {
-  width: 76px; height: 76px;
-  background: var(--gradient);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 24px;
-  box-shadow: 0 8px 32px rgba(233, 30, 140, 0.25);
-  font-size: 32px;
-  color: #fff;
-}
-
-.done h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.done p {
-  font-size: 14.5px;
-  color: var(--text-mid);
-  max-width: 420px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-/* === FOOTER === */
-.footer {
-  text-align: center;
-  padding: 28px 28px 44px;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.footer-bar {
-  width: 36px; height: 3px;
-  background: var(--gradient);
-  border-radius: 2px;
-  margin: 0 auto 14px;
-}
-
-.footer p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text-light);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-@media (max-width: 600px) {
-  .header-inner { padding: 36px 20px 28px; }
-  .header.compact .header-inner { padding: 14px 20px 12px; }
-  .header h1 { font-size: 21px; }
-  .header-desc { font-size: 13px; }
-  .form-area { padding: 14px 16px 36px; }
-  .tabs-scroll { padding: 12px 16px 0; }
-  .section-dots { padding: 6px 16px 0; }
-  .q-card { padding: 18px 16px; }
-  .logo-icon { width: 48px; height: 48px; }
-  .header.compact .logo-icon { width: 36px; height: 36px; }
-  .logo-icon span { font-size: 15px; }
-  .header.compact .logo-icon span { font-size: 11px; }
-  .logo-name { font-size: 14px; letter-spacing: 2.5px; }
-  .logo-pro { font-size: 19px; }
-  .progress-inner { padding: 8px 16px; }
-  .tabs-hint { padding: 4px 16px 0; font-size: 10px; }
+@media(max-width:600px){
+  .header-inner{padding:28px 18px 24px}
+  .header h1{font-size:19px}
+  .blocks{padding:12px 14px 36px}
+  .block-header{padding:15px 16px}
+  .block-content{padding:0 16px 16px}
+  .q-card{padding:14px 16px}
+  .progress-inner{padding:8px 14px}
+  .submit-row{padding:0 14px 36px}
+  .toggle-btn{padding:12px 6px 8px;font-size:12px}
+  .chip{font-size:11.5px;padding:5px 12px}
 }
 </style>
 </head>
 <body>
 
-<div class="header" id="header">
+<div class="header">
   <div class="header-inner">
     <div class="logo-row">
       <div class="logo-icon"><span>PRO</span></div>
-      <div>
-        <div class="logo-name">КАЧАЛКИН</div>
-        <div class="logo-pro">PRO</div>
-      </div>
+      <div><div class="logo-name">КАЧАЛКИН</div><div class="logo-pro">PRO</div></div>
     </div>
     <h1>Консультация по карьерной стратегии</h1>
-    <p class="header-desc">Маркетинг и PR направление. Заполни бриф — это поможет мне подготовиться к нашей встрече и сделать её максимально полезной для тебя.</p>
+    <p class="header-desc">Маркетинг и PR. Заполните бриф — это поможет провести нашу встречу максимально эффективно.</p>
   </div>
 </div>
 
-<div class="progress-wrap">
-  <div class="progress-inner">
-    <div class="progress-track">
-      <div class="progress-fill" id="pFill" style="width:0%"></div>
-    </div>
-    <div class="progress-meta">
-      <div class="save-badge" id="saveBadge">✓ сохранено</div>
-      <div class="progress-text" id="pText">0 / 20</div>
-    </div>
-  </div>
+<div class="progress-wrap"><div class="progress-inner">
+  <div class="progress-track"><div class="progress-fill" id="pFill" style="width:0%"></div></div>
+  <div class="progress-meta"><div class="save-badge" id="saveBadge">✓ сохранено</div><div class="progress-text" id="pText">0 / 20</div></div>
+</div></div>
+
+<div class="error-banner" id="errorBanner">Не удалось отправить. Проверьте интернет и попробуйте ещё раз.</div>
+
+<div class="blocks" id="blocks"></div>
+
+<div class="submit-row" id="submitRow">
+  <button class="btn-send" id="sendBtn" onclick="preSend()">Отправить бриф ✓</button>
+  <div class="submit-hint">Можно отправить даже если заполнено не всё</div>
 </div>
 
-<div class="section-dots" id="sDots"></div>
-<div class="tabs-scroll" id="tabs"></div>
-<div class="tabs-hint" id="tabsHint">← можно переключаться между разделами →</div>
-
-<div class="error-banner" id="errorBanner">Не удалось отправить. Проверь интернет и попробуй ещё раз.</div>
-
-<div class="form-area" id="formArea"></div>
-
-<div class="modal-overlay" id="confirmModal">
-  <div class="modal-box">
-    <div class="modal-icon">📋</div>
-    <div class="modal-title">Отправить бриф?</div>
-    <div class="modal-text" id="modalText"></div>
-    <div class="modal-buttons">
-      <button class="modal-btn modal-btn-cancel" onclick="closeModal()">Ещё заполню</button>
-      <button class="modal-btn modal-btn-confirm" onclick="confirmSend()">Отправить</button>
-    </div>
+<div class="modal-overlay" id="confirmModal"><div class="modal-box">
+  <div class="modal-icon">📋</div>
+  <div class="modal-title">Отправить бриф?</div>
+  <div class="modal-text" id="modalText"></div>
+  <div class="modal-buttons">
+    <button class="modal-btn modal-btn-cancel" onclick="closeModal()">Ещё заполню</button>
+    <button class="modal-btn modal-btn-confirm" onclick="confirmSend()">Отправить</button>
   </div>
-</div>
+</div></div>
 
-<div class="overlay" id="overlay">
-  <div>
-    <div class="spinner"></div>
-    <div class="spinner-label">Отправляю ответы...</div>
-  </div>
-</div>
+<div class="overlay" id="overlay"><div><div class="spinner"></div><div class="spinner-label">Отправляю...</div></div></div>
 
 <div class="done" id="done">
   <div class="done-circle">✓</div>
   <h2>Спасибо! Бриф отправлен</h2>
-  <p>Я получил твои ответы и начинаю готовиться к&nbsp;консультации. Скоро свяжусь с&nbsp;тобой. До встречи!</p>
+  <p>Я получил Ваши ответы и начинаю готовиться к&nbsp;консультации. Скоро свяжусь. До встречи!</p>
 </div>
 
-<div class="footer">
-  <div class="footer-bar"></div>
-  <p>КАЧАЛКИН PRO · стратегический консалтинг</p>
-</div>
+<div class="footer"><div class="footer-bar"></div><p>КАЧАЛКИН PRO · стратегический консалтинг</p></div>
 
 <script>
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwpRqyMzV39Snq6VLMVkeVrsioDHIFaVpV6CPBSZpiBbQc5QGrekk2gz4AFnmL4_-HG/exec';
-const LS_KEY = 'kachalkin_brief_v3';
+const SCRIPT_URL='https://script.google.com/macros/s/AKfycbwpRqyMzV39Snq6VLMVkeVrsioDHIFaVpV6CPBSZpiBbQc5QGrekk2gz4AFnmL4_-HG/exec';
+const LS_KEY='kachalkin_brief_v6';
 
-const B = [
-  { t:"Знакомство", ic:"👋", q:[
-    {id:"name", l:"Как тебя зовут?", h:"Имя и фамилия", type:"input"}
-  ]},
-  { t:"О тебе", ic:"👤", q:[
-    {id:"age_education",       l:"Сколько тебе лет? Какое у тебя образование?",               h:"Вуз, специальность, год выпуска или текущий курс"},
-    {id:"additional_education", l:"Дополнительное образование",                                h:"Курсы, сертификаты в области маркетинга, PR, коммуникаций"},
-    {id:"experience",           l:"Опыт работы на данный момент",                              h:"Компании, роли, сроки — даже если это стажировки или фриланс"},
-    {id:"languages",            l:"Какими языками владеешь и на каком уровне?",                 h:"Например: английский B2, французский A1"}
-  ]},
-  { t:"Текущая ситуация", ic:"📍", q:[
-    {id:"current_situation", l:"Чем ты занимаешься сейчас?",                                   h:"Работа, учёба, проекты"},
-    {id:"likes_dislikes",    l:"Что нравится в том, что делаешь, а что — нет?",                h:""},
-    {id:"strengths",         l:"Какие у тебя сильные стороны?",                                h:"Что хорошо получается? Можно примерами"},
-    {id:"challenges",        l:"Что даётся тяжело или вызывает сопротивление?",                h:""},
-    {id:"ai_usage",          l:"Используешь ли ты ИИ-инструменты?",                            h:"ChatGPT, Claude, Midjourney и т.д. — в учёбе, работе, повседневной жизни. Как именно?"}
-  ]},
-  { t:"Запрос", ic:"🎯", q:[
-    {id:"main_question", l:"Какой главный вопрос ты хочешь решить на консультации?",           h:"Сформулируй как можешь, идеальной формулировки не нужно"},
-    {id:"interests",     l:"Какие направления в маркетинге/PR тебе интересны?",                 h:"Бренд-менеджмент, digital, контент, PR, агентство, личный бренд, event и т.д."},
-    {id:"role_models",   l:"Есть ли компании или люди, на чью карьеру ориентируешься?",          h:""}
-  ]},
-  { t:"Образ будущего", ic:"✨", q:[
-    {id:"career_3_5", l:"Что для тебя «успешная карьера» через 3–5 лет?",                      h:""},
-    {id:"life_5_10",  l:"Как ты видишь свою жизнь через 5–10 лет?",                            h:"Не только работа — образ жизни, ценности, приоритеты. Без «правильных» ответов"}
-  ]},
-  { t:"Ресурсы", ic:"⚡", q:[
-    {id:"health",            l:"Как оцениваешь своё состояние — физическое и ментальное?",      h:"Есть ли что-то, что влияет на энергию и продуктивность?"},
-    {id:"constraints",       l:"Есть ли ограничения, которые важно учесть?",                    h:"География, финансы, время, личные обстоятельства"},
-    {id:"previous_attempts", l:"Что уже пробовала для решения карьерного вопроса?",              h:"Что сработало, а что нет?"}
-  ]},
-  { t:"Встреча", ic:"📅", q:[
-    {id:"preferred_datetime", l:"Когда тебе удобно провести консультацию?",                     h:"Предпочтительные дни недели, время суток, конкретные даты"},
-    {id:"format_preference",  l:"Какой формат удобнее — очно или онлайн?",                      h:"Если очно — укажи район/город, если есть предпочтения"}
-  ]},
-  { t:"Дополнительно", ic:"💬", q:[
-    {id:"additional", l:"Есть ли что-то ещё, что важно знать перед встречей?", h:""}
-  ]}
+// 4 accordion blocks with sub-sections
+const BLOCKS=[
+  {
+    title:"О Вас",icon:"👤",sub:"Знакомство, образование, опыт",
+    sections:[
+      {label:null, questions:[
+        {id:"name",l:"Как Вас зовут?",h:"Имя и фамилия",type:"input"},
+      ]},
+      {label:"Образование и опыт", questions:[
+        {id:"age_education",l:"Сколько Вам лет? Какое у Вас образование?",h:"Вуз, специальность, год выпуска или текущий курс",type:"textarea"},
+        {id:"additional_education",l:"Дополнительное образование",h:"Курсы, сертификаты, тренинги",type:"textarea"},
+        {id:"experience",l:"Какой у Вас опыт работы?",h:"Компании, роли, сроки — стажировки тоже считаются",type:"textarea"},
+        {id:"languages",l:"Какими языками Вы владеете?",h:"Выберите и укажите уровень ниже",type:"chips",
+          chips:["Русский","Английский","Немецкий","Французский","Испанский","Китайский"],
+          customPlaceholder:"Другой язык",
+          textPlaceholder:"Укажите уровень: например, английский B2"},
+      ]},
+    ]
+  },
+  {
+    title:"Ситуация и запрос",icon:"🎯",sub:"Чем занимаетесь, что хотите изменить",
+    sections:[
+      {label:"Текущая ситуация", questions:[
+        {id:"current_situation",l:"Чем Вы занимаетесь сейчас?",h:"Работа, учёба, проекты",type:"textarea"},
+        {id:"likes_dislikes",l:"Что нравится в том, чем занимаетесь, а что — нет?",h:"",type:"textarea"},
+        {id:"strengths",l:"Какие у Вас сильные стороны?",h:"Что хорошо получается? Можно с примерами",type:"textarea"},
+        {id:"challenges",l:"Что даётся тяжело или вызывает сопротивление?",h:"",type:"textarea"},
+        {id:"ai_usage",l:"Пользуетесь ли Вы ИИ-инструментами?",h:"Выберите и расскажите как",type:"chips",
+          chips:["ChatGPT","Claude","Midjourney","Copilot","Perplexity","YandexGPT","Не пользуюсь"],
+          customPlaceholder:"Другой инструмент",
+          textPlaceholder:"Как используете: в учёбе, работе, жизни"},
+      ]},
+      {label:"Запрос на консультацию", questions:[
+        {id:"main_question",l:"Главный вопрос, который хотите решить",h:"Сформулируйте как можете",type:"textarea"},
+        {id:"interests",l:"Какие направления маркетинга/PR Вам интересны?",h:"Выберите одно или несколько",type:"chips",
+          chips:["Бренд-менеджмент","Digital-маркетинг","Контент","PR и коммуникации","Агентство","Личный бренд","Event","Продуктовый маркетинг","Аналитика","Influence-маркетинг"],
+          customPlaceholder:"Своё направление",
+          textPlaceholder:"Расскажите подробнее, если хотите"},
+        {id:"role_models",l:"Компании или люди-ориентиры в карьере",h:"На кого ориентируетесь?",type:"textarea"},
+      ]},
+    ]
+  },
+  {
+    title:"Будущее и ресурсы",icon:"✨",sub:"Образ жизни через 5–10 лет, состояние",
+    sections:[
+      {label:"Образ будущего", questions:[
+        {id:"career_3_5",l:"Что для Вас «успешная карьера» через 3–5 лет?",h:"",type:"textarea"},
+        {id:"life_5_10",l:"Как Вы видите свою жизнь через 5–10 лет?",h:"Не только работа — ценности, приоритеты, образ жизни",type:"textarea"},
+      ]},
+      {label:"Ресурсы и ограничения", questions:[
+        {id:"health",l:"Как Вы оцениваете своё состояние?",h:"Физическое и ментальное. Что влияет на Вашу энергию?",type:"textarea"},
+        {id:"constraints",l:"Ограничения, которые важно учесть",h:"Выберите актуальные",type:"chips",
+          chips:["География","Финансы","Время","Семейные обстоятельства","Здоровье"],
+          customPlaceholder:"Другое",
+          textPlaceholder:"Расскажите подробнее"},
+        {id:"previous_attempts",l:"Что Вы уже пробовали для решения вопроса?",h:"Что сработало, а что нет?",type:"textarea"},
+      ]},
+    ]
+  },
+  {
+    title:"Встреча",icon:"📅",sub:"Формат и удобное время",
+    sections:[
+      {label:null, questions:[
+        {id:"format_preference",l:"Какой формат встречи Вам удобнее?",h:"",type:"toggle",
+          options:[
+            {value:"Очно",emoji:"🏢",sub:"Встретимся лично"},
+            {value:"Онлайн",emoji:"💻",sub:"Zoom / Google Meet"},
+            {value:"Без разницы",emoji:"🤝",sub:"Любой вариант"}
+          ],
+          textPlaceholder:"Если очно — укажите удобный район или город"},
+        {id:"preferred_datetime",l:"Когда Вам удобно провести консультацию?",h:"Дни недели, время суток, конкретные даты",type:"textarea"},
+        {id:"additional",l:"Что-то ещё, что важно знать перед встречей?",h:"Любые комментарии, пожелания или вопросы",type:"textarea"},
+      ]},
+    ]
+  }
 ];
 
-const TQ = B.reduce((a,b) => a + b.q.length, 0);
-let cur = 0;
-let A = {};
-let prevBlkStatus = B.map(() => false);
-let saveTimer = null;
-let hintDismissed = false;
+// Flatten all questions for counting
+const ALL_Q=[];
+let qNum=0;
+BLOCKS.forEach(b=>b.sections.forEach(s=>s.questions.forEach(q=>{qNum++;q._n=qNum;ALL_Q.push(q)})));
+const TQ=ALL_Q.length;
 
-// === localStorage ===
-function saveToLS() {
-  try { localStorage.setItem(LS_KEY, JSON.stringify({ answers: A, cur: cur })); } catch(e) {}
+let A={},chips_data={},openBlocks={0:true},saveT=null;
+
+function saveLS(){try{localStorage.setItem(LS_KEY,JSON.stringify({a:A,ch:chips_data,ob:openBlocks}))}catch(e){}}
+function loadLS(){try{const d=JSON.parse(localStorage.getItem(LS_KEY));if(d&&d.a){A=d.a;chips_data=d.ch||{};if(d.ob)openBlocks=d.ob}}catch(e){}}
+function clearLS(){try{localStorage.removeItem(LS_KEY)}catch(e){}}
+function flashSave(){const b=document.getElementById('saveBadge');b.classList.add('show');clearTimeout(saveT);saveT=setTimeout(()=>b.classList.remove('show'),1500)}
+
+window.addEventListener('beforeunload',function(e){if(cnt()>0&&!document.getElementById('done').classList.contains('show')){e.preventDefault();e.returnValue=''}});
+
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const cnt=()=>ALL_Q.filter(q=>A[q.id]&&A[q.id].trim()).length;
+
+function blockCnt(bi){
+  let filled=0,total=0;
+  BLOCKS[bi].sections.forEach(s=>s.questions.forEach(q=>{total++;if(A[q.id]&&A[q.id].trim())filled++}));
+  return{filled,total};
 }
 
-function loadFromLS() {
-  try {
-    const d = JSON.parse(localStorage.getItem(LS_KEY));
-    if (d && d.answers) { A = d.answers; cur = d.cur || 0; }
-  } catch(e) {}
+function updProg(){
+  const c=cnt();
+  document.getElementById('pFill').style.width=Math.round(c/TQ*100)+'%';
+  document.getElementById('pText').textContent=c+' / '+TQ;
 }
 
-function clearLS() {
-  try { localStorage.removeItem(LS_KEY); } catch(e) {}
-}
-
-function flashSave() {
-  const badge = document.getElementById('saveBadge');
-  badge.classList.add('show');
-  clearTimeout(saveTimer);
-  saveTimer = setTimeout(() => badge.classList.remove('show'), 1500);
-}
-
-// === beforeunload ===
-window.addEventListener('beforeunload', function(e) {
-  if (cnt() > 0 && !document.getElementById('done').classList.contains('show')) {
-    e.preventDefault();
-    e.returnValue = '';
+function buildAnswer(q){
+  if(q.type==='chips'||q.type==='toggle'){
+    const cv=(chips_data[q.id]||[]).join(', ');
+    const tv=(A[q.id+'_text']||'').trim();
+    const parts=[];if(cv)parts.push(cv);if(tv)parts.push(tv);
+    return parts.join('. ');
   }
-});
-
-// === Compact header on scroll ===
-let lastScroll = 0;
-window.addEventListener('scroll', function() {
-  const h = document.getElementById('header');
-  if (window.scrollY > 200) h.classList.add('compact');
-  else h.classList.remove('compact');
-
-  // Hide hint after first scroll
-  if (!hintDismissed && window.scrollY > 50) {
-    hintDismissed = true;
-    document.getElementById('tabsHint').classList.add('hidden');
-  }
-}, { passive: true });
-
-// === Helpers ===
-const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-const cnt = () => Object.values(A).filter(v => v && v.trim()).length;
-const blkDone = i => B[i].q.every(q => A[q.id] && A[q.id].trim());
-const blkCnt = i => B[i].q.filter(q => A[q.id] && A[q.id].trim()).length;
-const pl = n => n===1 ? 'вопрос' : n>=2&&n<=4 ? 'вопроса' : 'вопросов';
-
-function updProg() {
-  const c = cnt();
-  document.getElementById('pFill').style.width = Math.round(c / TQ * 100) + '%';
-  document.getElementById('pText').textContent = c + ' / ' + TQ;
+  return A[q.id]||'';
 }
 
-// === Section dots ===
-function mkDots() {
-  const el = document.getElementById('sDots');
-  el.innerHTML = '';
-  B.forEach((b, i) => {
-    const d = document.createElement('div');
-    d.className = 's-dot' + (blkDone(i) ? ' done' : (i === cur ? ' active' : ''));
-    el.appendChild(d);
+function syncChipAnswer(q){
+  A[q.id]=buildAnswer(q);
+  updProg();saveLS();flashSave();
+  const card=document.getElementById('card_'+q.id);
+  if(card){if(A[q.id]&&A[q.id].trim())card.classList.add('filled');else card.classList.remove('filled')}
+  updBlockCounters();
+}
+
+function updBlockCounters(){
+  BLOCKS.forEach((b,i)=>{
+    const el=document.getElementById('bcnt_'+i);
+    if(!el)return;
+    const{filled,total}=blockCnt(i);
+    el.textContent=filled+' / '+total;
+    if(filled===total&&total>0)el.classList.add('complete');else el.classList.remove('complete');
   });
 }
 
-// === Tabs — only rebuild when block status changes ===
-function mkTabs(scrollToActive) {
-  const el = document.getElementById('tabs');
-  el.innerHTML = '';
-  B.forEach((b, i) => {
-    const t = document.createElement('button');
-    t.className = 'tab-btn' + (i === cur ? ' active' : '');
-    t.setAttribute('role', 'tab');
-    t.setAttribute('aria-selected', i === cur ? 'true' : 'false');
-    const chk = blkDone(i) ? ' <span class="cm">✓</span>' : '';
-    t.innerHTML = b.ic + ' ' + b.t + chk;
-    t.onclick = () => go(i);
-    el.appendChild(t);
-  });
-  if (scrollToActive) {
-    const active = el.querySelector('.active');
-    if (active) active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+function toggleBlock(i){
+  openBlocks[i]=!openBlocks[i];
+  const block=document.getElementById('block_'+i);
+  if(openBlocks[i]){
+    block.classList.add('open');
+  }else{
+    block.classList.remove('open');
   }
-  prevBlkStatus = B.map((_, i) => blkDone(i));
+  saveLS();
 }
 
-function maybeUpdateTabs() {
-  const newStatus = B.map((_, i) => blkDone(i));
-  const changed = newStatus.some((s, i) => s !== prevBlkStatus[i]);
-  if (changed) {
-    mkTabs(false);
-    mkDots();
-  }
-}
+function render(){
+  const container=document.getElementById('blocks');
+  let html='';
 
-// === Form ===
-function mkForm() {
-  const el = document.getElementById('formArea');
-  const b = B[cur];
-  let n = 0;
-  for (let i = 0; i < cur; i++) n += B[i].q.length;
+  BLOCKS.forEach((block,bi)=>{
+    const{filled,total}=blockCnt(bi);
+    const isOpen=openBlocks[bi];
 
-  const filled = blkCnt(cur);
-  const total = b.q.length;
-  const isComplete = filled === total;
+    html+='<div class="block'+(isOpen?' open':'')+'" id="block_'+bi+'">';
 
-  let h = '<form class="section" onsubmit="return false" role="group" aria-label="' + esc(b.t) + '">';
-  h += '<div class="section-head"><div class="section-head-left"><div class="section-badge">' + b.ic + '</div><div><div class="section-name">' + b.t + '</div><div class="section-qty">' + total + ' ' + pl(total) + '</div></div></div>';
-  h += '<div class="section-progress' + (isComplete ? ' complete' : '') + '">' + filled + ' / ' + total + '</div></div>';
+    // Header
+    html+='<div class="block-header" onclick="toggleBlock('+bi+')">';
+    html+='<div class="block-left"><div class="block-icon">'+block.icon+'</div><div><div class="block-title">'+block.title+'</div><div class="block-subtitle">'+block.sub+'</div></div></div>';
+    html+='<div class="block-right"><div class="block-counter'+(filled===total&&total>0?' complete':'')+'" id="bcnt_'+bi+'">'+filled+' / '+total+'</div>';
+    html+='<svg class="block-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+    html+='</div></div>';
 
-  b.q.forEach(q => {
-    n++;
-    const v = A[q.id] || '';
-    const f = v.trim() ? ' filled' : '';
-    const fid = 'inp_' + q.id;
+    // Body
+    html+='<div class="block-body"><div class="block-content">';
 
-    h += '<div class="q-card' + f + '" id="card_' + q.id + '">';
-    h += '<div class="q-num">Вопрос ' + n + '</div>';
-    h += '<div class="q-label-row"><label class="q-label" for="' + fid + '">' + q.l + '</label><span class="q-filled-check">✓</span></div>';
-    if (q.h) h += '<div class="q-hint">' + q.h + '</div>'; else h += '<div class="q-hint"></div>';
+    block.sections.forEach((sec,si)=>{
+      if(sec.label){
+        html+='<div class="sub-divider"><div class="sub-divider-line"></div><div class="sub-divider-text">'+sec.label+'</div><div class="sub-divider-line"></div></div>';
+      }
 
-    if (q.type === 'input') {
-      h += '<input type="text" id="' + fid + '" name="' + q.id + '" placeholder="Твой ответ..." value="' + esc(v) + '" aria-label="' + esc(q.l) + '">';
-    } else {
-      h += '<textarea id="' + fid + '" name="' + q.id + '" placeholder="Твой ответ..." aria-label="' + esc(q.l) + '">' + esc(v) + '</textarea>';
-    }
-    h += '</div>';
-  });
+      sec.questions.forEach(q=>{
+        const v=A[q.id]||'';
+        const f=v.trim()?' filled':'';
+        html+='<div class="q-card'+f+'" id="card_'+q.id+'">';
+        html+='<div class="q-num">Вопрос '+q._n+'</div>';
+        html+='<div class="q-label-row"><label class="q-label">'+q.l+'</label><span class="q-check">✓</span></div>';
+        if(q.h)html+='<div class="q-hint">'+q.h+'</div>';else html+='<div class="q-hint"></div>';
 
-  h += '<div class="nav-row">';
-  h += cur > 0 ? '<button type="button" class="btn btn-back" onclick="go(' + (cur - 1) + ')">← Назад</button>' : '<div></div>';
-  if (cur < B.length - 1) {
-    h += '<button type="button" class="btn btn-fwd" onclick="go(' + (cur + 1) + ')">Далее →</button>';
-  } else {
-    h += '<button type="button" class="btn btn-send" id="sendBtn" onclick="preSend()">Отправить бриф ✓</button>';
-  }
-  h += '</div></form>';
-  el.innerHTML = h;
-
-  // Attach live input listeners (no re-render on type)
-  b.q.forEach(q => {
-    const inp = document.getElementById('inp_' + q.id);
-    if (inp) {
-      inp.addEventListener('input', function() {
-        A[q.id] = this.value;
-        updProg();
-        saveToLS();
-        flashSave();
-
-        const card = document.getElementById('card_' + q.id);
-        if (this.value.trim()) card.classList.add('filled');
-        else card.classList.remove('filled');
-
-        // Update section progress counter
-        const sp = document.querySelector('.section-progress');
-        const fc = blkCnt(cur);
-        sp.textContent = fc + ' / ' + b.q.length;
-        if (fc === b.q.length) sp.classList.add('complete');
-        else sp.classList.remove('complete');
-
-        maybeUpdateTabs();
+        if(q.type==='input'){
+          html+='<input type="text" id="inp_'+q.id+'" placeholder="Ваш ответ..." value="'+esc(v)+'">';
+        }else if(q.type==='chips'){
+          const sel=chips_data[q.id]||[];
+          html+='<div class="chips-wrap" id="chips_'+q.id+'">';
+          q.chips.forEach(c=>{html+='<button type="button" class="chip'+(sel.includes(c)?' selected':'')+'" data-qid="'+q.id+'" data-val="'+esc(c)+'">'+c+'</button>'});
+          html+='</div>';
+          html+='<div class="chip-custom-row"><input type="text" id="customchip_'+q.id+'" placeholder="'+(q.customPlaceholder||'Свой вариант')+'"><button type="button" class="chip-add-btn" data-qid="'+q.id+'">+</button></div>';
+          const tv=A[q.id+'_text']||'';
+          html+='<textarea id="inp_'+q.id+'_text" placeholder="'+(q.textPlaceholder||'Подробнее')+'" style="margin-top:8px;min-height:56px">'+esc(tv)+'</textarea>';
+        }else if(q.type==='toggle'){
+          const sel=chips_data[q.id]||[];
+          html+='<div class="toggle-row" id="toggle_'+q.id+'">';
+          q.options.forEach(o=>{html+='<button type="button" class="toggle-btn'+(sel.includes(o.value)?' selected':'')+'" data-qid="'+q.id+'" data-val="'+esc(o.value)+'"><span class="toggle-emoji">'+o.emoji+'</span>'+o.value+'</button>'});
+          html+='</div>';
+          const tv=A[q.id+'_text']||'';
+          html+='<textarea id="inp_'+q.id+'_text" placeholder="'+(q.textPlaceholder||'Уточни')+'" style="min-height:56px">'+esc(tv)+'</textarea>';
+        }else{
+          html+='<textarea id="inp_'+q.id+'" placeholder="Ваш ответ...">'+esc(v)+'</textarea>';
+        }
+        html+='</div>';
       });
-    }
-  });
-}
-
-function go(i) {
-  cur = i;
-  saveToLS();
-  mkTabs(true);
-  mkDots();
-  mkForm();
-  window.scrollTo({ top: 0 });
-}
-
-// === Pre-send validation ===
-function preSend() {
-  const filled = cnt();
-  const empty = TQ - filled;
-
-  let msg = '';
-  if (empty === TQ) {
-    msg = '<span class="warn">Все поля пустые.</span> Уверен(а), что хочешь отправить пустой бриф?';
-  } else if (empty > 0) {
-    msg = 'Заполнено <strong>' + filled + ' из ' + TQ + '</strong> вопросов. Незаполненные поля: ' + empty + '.<br>Отправить как есть?';
-  } else {
-    msg = 'Все <strong>' + TQ + '</strong> вопросов заполнены. Отправляем?';
-  }
-
-  document.getElementById('modalText').innerHTML = msg;
-  document.getElementById('confirmModal').classList.add('show');
-}
-
-function closeModal() {
-  document.getElementById('confirmModal').classList.remove('show');
-}
-
-async function confirmSend() {
-  closeModal();
-  const btn = document.getElementById('sendBtn');
-  if (btn) btn.disabled = true;
-  document.getElementById('overlay').classList.add('show');
-  document.getElementById('errorBanner').classList.remove('show');
-
-  let success = false;
-  try {
-    // Use form-encoded to avoid CORS issues
-    const params = new URLSearchParams();
-    for (const [k, v] of Object.entries(A)) {
-      params.append(k, v || '');
-    }
-    params.append('_timestamp', new Date().toISOString());
-
-    const resp = await fetch(SCRIPT_URL, {
-      method: 'POST',
-      body: params
     });
 
-    // If we get any response, treat as success (Google Scripts redirects)
-    success = true;
-  } catch(e) {
-    // With Google Apps Script, even failed CORS can mean success
-    // Try a no-cors fallback
-    try {
-      const params = new URLSearchParams();
-      for (const [k, v] of Object.entries(A)) {
-        params.append(k, v || '');
-      }
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: params
+    html+='</div></div></div>';
+  });
+
+  container.innerHTML=html;
+  bindEvents();
+}
+
+function bindEvents(){
+  ALL_Q.forEach(q=>{
+    if(q.type==='input'||q.type==='textarea'){
+      const inp=document.getElementById('inp_'+q.id);
+      if(inp)inp.addEventListener('input',function(){
+        A[q.id]=this.value;updProg();saveLS();flashSave();
+        const card=document.getElementById('card_'+q.id);
+        if(this.value.trim())card.classList.add('filled');else card.classList.remove('filled');
+        updBlockCounters();
       });
-      success = true;
-    } catch(e2) {
-      console.error('Send failed:', e2);
     }
+    if(q.type==='chips'){
+      document.querySelectorAll('.chip[data-qid="'+q.id+'"]').forEach(btn=>{
+        btn.addEventListener('click',function(){
+          if(!chips_data[q.id])chips_data[q.id]=[];
+          const val=this.dataset.val;
+          if(chips_data[q.id].includes(val)){chips_data[q.id]=chips_data[q.id].filter(v=>v!==val);this.classList.remove('selected')}
+          else{chips_data[q.id].push(val);this.classList.add('selected')}
+          syncChipAnswer(q);
+        });
+      });
+      const addBtn=document.querySelector('.chip-add-btn[data-qid="'+q.id+'"]');
+      const customInp=document.getElementById('customchip_'+q.id);
+      if(addBtn&&customInp){
+        const doAdd=()=>{
+          const val=customInp.value.trim();if(!val)return;
+          if(!chips_data[q.id])chips_data[q.id]=[];
+          if(!chips_data[q.id].includes(val)){
+            chips_data[q.id].push(val);
+            const wrap=document.getElementById('chips_'+q.id);
+            const nc=document.createElement('button');nc.type='button';nc.className='chip selected';
+            nc.dataset.qid=q.id;nc.dataset.val=val;nc.textContent=val;
+            nc.addEventListener('click',function(){chips_data[q.id]=chips_data[q.id].filter(v=>v!==val);this.remove();syncChipAnswer(q)});
+            wrap.appendChild(nc);
+          }
+          customInp.value='';syncChipAnswer(q);
+        };
+        addBtn.addEventListener('click',doAdd);
+        customInp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doAdd()}});
+      }
+      const ta=document.getElementById('inp_'+q.id+'_text');
+      if(ta)ta.addEventListener('input',function(){A[q.id+'_text']=this.value;syncChipAnswer(q)});
+    }
+    if(q.type==='toggle'){
+      document.querySelectorAll('.toggle-btn[data-qid="'+q.id+'"]').forEach(btn=>{
+        btn.addEventListener('click',function(){
+          chips_data[q.id]=[this.dataset.val];
+          document.querySelectorAll('.toggle-btn[data-qid="'+q.id+'"]').forEach(b=>b.classList.remove('selected'));
+          this.classList.add('selected');syncChipAnswer(q);
+        });
+      });
+      const ta=document.getElementById('inp_'+q.id+'_text');
+      if(ta)ta.addEventListener('input',function(){A[q.id+'_text']=this.value;syncChipAnswer(q)});
+    }
+  });
+}
+
+function preSend(){
+  const filled=cnt(),empty=TQ-filled;
+  let msg='';
+  if(empty===TQ)msg='<span class="warn">Все поля пустые.</span> Отправить пустой бриф?';
+  else if(empty>0)msg='Заполнено <strong>'+filled+' из '+TQ+'</strong>. Пропущено: '+empty+'.<br>Отправить как есть?';
+  else msg='Все <strong>'+TQ+'</strong> вопросов заполнены!';
+  document.getElementById('modalText').innerHTML=msg;
+  document.getElementById('confirmModal').classList.add('show');
+}
+function closeModal(){document.getElementById('confirmModal').classList.remove('show')}
+
+async function confirmSend(){
+  closeModal();
+  const btn=document.getElementById('sendBtn');btn.disabled=true;
+  document.getElementById('overlay').classList.add('show');
+  document.getElementById('errorBanner').classList.remove('show');
+  let ok=false;
+  try{
+    const p=new URLSearchParams();
+    for(const[k,v]of Object.entries(A))p.append(k,v||'');
+    await fetch(SCRIPT_URL,{method:'POST',body:p});ok=true;
+  }catch(e){
+    try{const p=new URLSearchParams();for(const[k,v]of Object.entries(A))p.append(k,v||'');await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',body:p});ok=true}catch(e2){}
   }
-
   document.getElementById('overlay').classList.remove('show');
-
-  if (success) {
+  if(ok){
     clearLS();
-    document.getElementById('formArea').style.display = 'none';
-    document.getElementById('tabs').style.display = 'none';
-    document.getElementById('sDots').style.display = 'none';
-    document.getElementById('tabsHint').style.display = 'none';
+    document.getElementById('blocks').style.display='none';
+    document.getElementById('submitRow').style.display='none';
     document.getElementById('done').classList.add('show');
-    // Show actual filled count, not forced 100%
-    const c = cnt();
-    document.getElementById('pFill').style.width = '100%';
-    document.getElementById('pText').textContent = c + ' / ' + TQ;
-  } else {
-    if (btn) btn.disabled = false;
+    document.getElementById('pFill').style.width='100%';
+  }else{
+    btn.disabled=false;
     document.getElementById('errorBanner').classList.add('show');
-    setTimeout(() => document.getElementById('errorBanner').classList.remove('show'), 6000);
+    setTimeout(()=>document.getElementById('errorBanner').classList.remove('show'),6000);
   }
 }
 
-// === Init ===
-loadFromLS();
-mkTabs(false);
-mkDots();
-mkForm();
-updProg();
+loadLS();render();updProg();
 </script>
-
 </body>
 </html>
