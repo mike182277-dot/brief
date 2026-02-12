@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бриф — Консультация по карьерной стратегии | КАЧАЛКИН PRO</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pink: #E91E8C;
+  --magenta: #C22097;
+  --purple: #6B2FA0;
+  --gradient: linear-gradient(135deg, #E91E8C 0%, #9B2FAF 50%, #6B2FA0 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(233,30,140,0.06), rgba(107,47,160,0.06));
+  --bg: #F8F6FB;
+  --card: #FFFFFF;
+  --text: #1A1A2E;
+  --text-mid: #4A4A60;
+  --text-light: #8888A0;
+  --border: #EBE6F2;
+  --input-bg: #FCFAFE;
+  --focus-ring: rgba(233, 30, 140, 0.12);
+  --shadow-sm: 0 1px 4px rgba(107, 47, 160, 0.05);
+  --shadow-md: 0 4px 24px rgba(107, 47, 160, 0.07);
+  --shadow-lg: 0 12px 48px rgba(107, 47, 160, 0.1);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === HEADER === */
+.header {
+  background: var(--gradient);
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -15%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(15px, -15px); }
+}
+
+.header-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 44px 28px 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.logo-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.22);
+  flex-shrink: 0;
+}
+
+.logo-icon span {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 17px;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+
+.logo-text-group {
+  line-height: 1.15;
+}
+
+.logo-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.logo-pro {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: 1px;
+}
+
+.header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  letter-spacing: -0.2px;
+  line-height: 1.3;
+}
+
+.header-desc {
+  font-size: 14.5px;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.75;
+  max-width: 540px;
+}
+
+/* === STICKY PROGRESS === */
+.progress-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(235,230,242,0.6);
+}
+
+.progress-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 12px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.progress-track {
+  flex: 1;
+  height: 5px;
+  background: #EDE8F5;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient);
+  border-radius: 3px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 0;
+}
+
+.progress-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--purple);
+  white-space: nowrap;
+  min-width: 42px;
+  text-align: right;
+}
+
+/* === TAB NAV === */
+.tabs-scroll {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 28px 0;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tabs-scroll::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 7px 15px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--text-light);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.tab-btn:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+.tab-btn.active {
+  background: var(--gradient);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 3px 14px rgba(233, 30, 140, 0.28);
+}
+
+.tab-btn .check-mark { margin-left: 3px; font-size: 10px; }
+
+/* === FORM AREA === */
+.form-area {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 28px 48px;
+}
+
+/* Section animation */
+.section {
+  display: none;
+}
+.section.visible {
+  display: block;
+  animation: slideUp 0.35s ease forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-top: 4px;
+}
+
+.section-badge {
+  width: 42px;
+  height: 42px;
+  background: var(--gradient);
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  box-shadow: 0 4px 14px rgba(233, 30, 140, 0.2);
+  flex-shrink: 0;
+}
+
+.section-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.section-qty {
+  font-size: 12.5px;
+  color: var(--text-light);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* === QUESTION CARD === */
+.q-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+  margin-bottom: 14px;
+  border: 1.5px solid var(--border);
+  transition: all var(--transition);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.q-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--gradient);
+  border-radius: 3px 0 0 3px;
+  transition: height 0.4s ease;
+}
+
+.q-card:focus-within {
+  border-color: rgba(233, 30, 140, 0.25);
+  box-shadow: var(--shadow-md);
+}
+
+.q-card:focus-within::before {
+  height: 100%;
+}
+
+.q-card.filled {
+  border-color: rgba(107, 47, 160, 0.15);
+  background: linear-gradient(135deg, rgba(233,30,140,0.015), rgba(107,47,160,0.025));
+}
+
+.q-card.filled::before {
+  height: 100%;
+  opacity: 0.5;
+}
+
+.q-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--pink);
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  margin-bottom: 7px;
+}
+
+.q-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+  line-height: 1.5;
+}
+
+.q-hint {
+  font-size: 12.5px;
+  color: var(--text-light);
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+
+.q-hint:empty { display: none; }
+
+textarea {
+  width: 100%;
+  min-height: 96px;
+  padding: 13px 15px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--input-bg);
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.65;
+  resize: vertical;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+textarea::placeholder { color: #C0BCD0; }
+
+textarea:focus {
+  border-color: var(--pink);
+  background: #fff;
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+/* === NAV BUTTONS === */
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 28px;
+  gap: 12px;
+}
+
+.btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  outline: none;
+}
+
+.btn-back {
+  font-size: 13px;
+  padding: 11px 22px;
+  background: var(--card);
+  color: var(--text-light);
+  border: 1.5px solid var(--border);
+}
+
+.btn-back:hover { border-color: var(--purple); color: var(--purple); }
+
+.btn-forward {
+  font-size: 13px;
+  padding: 11px 26px;
+  background: var(--gradient);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(233, 30, 140, 0.22);
+}
+
+.btn-forward:hover {
+  box-shadow: 0 6px 24px rgba(233, 30, 140, 0.32);
+  transform: translateY(-1px);
+}
+
+.btn-send {
+  font-size: 14px;
+  padding: 13px 32px;
+  background: var(--gradient);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(233, 30, 140, 0.25);
+}
+
+.btn-send:hover {
+  box-shadow: 0 6px 28px rgba(233, 30, 140, 0.38);
+  transform: translateY(-1px);
+}
+
+.btn-send:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* === SENDING STATE === */
+.sending-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(248,246,251,0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+.sending-overlay.show { display: flex; }
+
+.spinner-box {
+  text-align: center;
+  animation: slideUp 0.3s ease;
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid #EDE8F5;
+  border-top-color: var(--pink);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.spinner-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-mid);
+}
+
+/* === SUCCESS === */
+.done-screen {
+  display: none;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 28px;
+  text-align: center;
+  animation: slideUp 0.5s ease;
+}
+
+.done-screen.show { display: block; }
+
+.done-circle {
+  width: 76px;
+  height: 76px;
+  background: var(--gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  box-shadow: 0 8px 32px rgba(233, 30, 140, 0.25);
+  font-size: 32px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.done-screen h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.done-screen p {
+  font-size: 14.5px;
+  color: var(--text-mid);
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* === FOOTER === */
+.footer {
+  text-align: center;
+  padding: 28px 28px 44px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.footer-bar {
+  width: 36px;
+  height: 3px;
+  background: var(--gradient);
+  border-radius: 2px;
+  margin: 0 auto 14px;
+}
+
+.footer p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-light);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* === MOBILE === */
+@media (max-width: 600px) {
+  .header-inner { padding: 36px 20px 32px; }
+  .header h1 { font-size: 21px; }
+  .header-desc { font-size: 13.5px; }
+  .form-area { padding: 16px 16px 36px; }
+  .tabs-scroll { padding: 16px 16px 0; }
+  .q-card { padding: 20px; }
+  .logo-icon { width: 48px; height: 48px; }
+  .logo-icon span { font-size: 15px; }
+  .logo-name { font-size: 14px; letter-spacing: 2.5px; }
+  .logo-pro { font-size: 19px; }
+  .progress-inner { padding: 10px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== -->
+<!--  ВАЖНО: Вставь свой URL от Google Apps Script ниже  -->
+<!-- ===================== -->
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="logo-row">
+      <div class="logo-icon"><span>PRO</span></div>
+      <div class="logo-text-group">
+        <div class="logo-name">КАЧАЛКИН</div>
+        <div class="logo-pro">PRO</div>
+      </div>
+    </div>
+    <h1>Консультация по карьерной стратегии</h1>
+    <p class="header-desc">Маркетинг и PR направление. Заполни бриф — это поможет мне подготовиться к нашей встрече и сделать её максимально полезной для тебя.</p>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <div class="progress-track">
+      <div class="progress-fill" id="pFill" style="width:0%"></div>
+    </div>
+    <div class="progress-text" id="pText">0 / 18</div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-scroll" id="tabs"></div>
+
+<!-- FORM -->
+<div class="form-area" id="formArea"></div>
+
+<!-- SENDING OVERLAY -->
+<div class="sending-overlay" id="sendingOverlay">
+  <div class="spinner-box">
+    <div class="spinner"></div>
+    <div class="spinner-text">Отправляю ответы...</div>
+  </div>
+</div>
+
+<!-- DONE -->
+<div class="done-screen" id="doneScreen">
+  <div class="done-circle">✓</div>
+  <h2>Спасибо! Бриф отправлен</h2>
+  <p>Я получил твои ответы и начинаю готовиться к&nbsp;консультации. Скоро свяжусь с&nbsp;тобой. До встречи!</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-bar"></div>
+  <p>КАЧАЛКИН PRO · стратегический консалтинг</p>
+</div>
+
+<script>
+// ========================================================
+// ⚡ ВСТАВЬ СЮДА URL своего Google Apps Script
+// ========================================================
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwpRqyMzV39Snq6VLMVkeVrsioDHIFaVpV6CPBSZpiBbQc5QGrekk2gz4AFnmL4_-HG/exec';
+// ========================================================
+
+const B = [
+  { t:"О тебе", ic:"👤", q:[
+    {id:"age_education",      l:"Сколько тебе лет? Какое у тебя образование?",               h:"Вуз, специальность, год выпуска или текущий курс"},
+    {id:"additional_education",l:"Дополнительное образование",                                 h:"Курсы, сертификаты в области маркетинга, PR, коммуникаций"},
+    {id:"experience",          l:"Опыт работы на данный момент",                               h:"Компании, роли, сроки — даже если это стажировки или фриланс"},
+    {id:"languages",           l:"Какими языками владеешь и на каком уровне?",                  h:"Например: английский B2, французский A1"}
+  ]},
+  { t:"Текущая ситуация", ic:"📍", q:[
+    {id:"current_situation", l:"Чем ты занимаешься сейчас?",                                   h:"Работа, учёба, проекты"},
+    {id:"likes_dislikes",    l:"Что нравится в том, что делаешь, а что — нет?",                 h:""},
+    {id:"strengths",         l:"Какие у тебя сильные стороны?",                                 h:"Что хорошо получается? Можно примерами"},
+    {id:"challenges",        l:"Что даётся тяжело или вызывает сопротивление?",                 h:""},
+    {id:"ai_usage",          l:"Используешь ли ты ИИ-инструменты?",                             h:"ChatGPT, Claude, Midjourney и т.д. — в учёбе, работе, повседневной жизни. Как именно?"}
+  ]},
+  { t:"Запрос и ожидания", ic:"🎯", q:[
+    {id:"main_question", l:"Какой главный вопрос ты хочешь решить на консультации?",            h:"Сформулируй как можешь, идеальной формулировки не нужно"},
+    {id:"interests",     l:"Какие направления в маркетинге/PR тебе интересны?",                  h:"Бренд-менеджмент, digital, контент, PR, агентство, личный бренд, event и т.д."},
+    {id:"role_models",   l:"Есть ли компании или люди, на чью карьеру ориентируешься?",           h:""}
+  ]},
+  { t:"Образ будущего", ic:"✨", q:[
+    {id:"career_3_5", l:"Что для тебя «успешная карьера» через 3–5 лет?",                       h:""},
+    {id:"life_5_10",  l:"Как ты видишь свою жизнь через 5–10 лет?",                             h:"Не только работа — образ жизни, ценности, приоритеты. Без «правильных» ответов"}
+  ]},
+  { t:"Ресурсы", ic:"⚡", q:[
+    {id:"health",            l:"Как оцениваешь своё состояние — физическое и ментальное?",       h:"Есть ли что-то, что влияет на энергию и продуктивность?"},
+    {id:"constraints",       l:"Есть ли ограничения, которые важно учесть?",                     h:"География, финансы, время, личные обстоятельства"},
+    {id:"previous_attempts", l:"Что уже пробовала для решения карьерного вопроса?",               h:"Что сработало, а что нет?"}
+  ]},
+  { t:"Дополнительно", ic:"💬", q:[
+    {id:"additional", l:"Есть ли что-то ещё, что важно знать перед встречей?", h:""}
+  ]}
+];
+
+const TQ = B.reduce((a,b)=>a+b.q.length,0);
+let cur = 0;
+const A = {};
+
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const cnt = () => Object.values(A).filter(v=>v&&v.trim()).length;
+const blkDone = i => B[i].q.every(q=>A[q.id]&&A[q.id].trim());
+const pl = n => n===1?'вопрос':n>=2&&n<=4?'вопроса':'вопросов';
+
+function updProg(){
+  const c=cnt();
+  document.getElementById('pFill').style.width=Math.round(c/TQ*100)+'%';
+  document.getElementById('pText').textContent=c+' / '+TQ;
+}
+
+function mkTabs(){
+  const el=document.getElementById('tabs');
+  el.innerHTML='';
+  B.forEach((b,i)=>{
+    const t=document.createElement('button');
+    t.className='tab-btn'+(i===cur?' active':'');
+    const chk=blkDone(i)?' <span class="check-mark">✓</span>':'';
+    t.innerHTML=b.ic+' '+b.t+chk;
+    t.onclick=()=>go(i);
+    el.appendChild(t);
+  });
+  // scroll active tab into view
+  const active=el.querySelector('.active');
+  if(active) active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+function mkForm(){
+  const el=document.getElementById('formArea');
+  const b=B[cur];
+  let n=0; for(let i=0;i<cur;i++) n+=B[i].q.length;
+
+  let h='<div class="section visible">';
+  h+='<div class="section-head"><div class="section-badge">'+b.ic+'</div><div><div class="section-name">'+b.t+'</div><div class="section-qty">'+b.q.length+' '+pl(b.q.length)+'</div></div></div>';
+
+  b.q.forEach(q=>{
+    n++;
+    const v=A[q.id]||'';
+    const f=v.trim()?' filled':'';
+    h+='<div class="q-card'+f+'" id="card_'+q.id+'">';
+    h+='<div class="q-num">Вопрос '+n+'</div>';
+    h+='<div class="q-label">'+q.l+'</div>';
+    h+='<div class="q-hint">'+q.h+'</div>';
+    h+='<textarea id="inp_'+q.id+'" placeholder="Твой ответ..." oninput="onInp(\''+q.id+'\',this)">'+esc(v)+'</textarea>';
+    h+='</div>';
+  });
+
+  h+='<div class="nav-row">';
+  h+=cur>0?'<button class="btn btn-back" onclick="go('+(cur-1)+')">← Назад</button>':'<div></div>';
+  if(cur<B.length-1){
+    h+='<button class="btn btn-forward" onclick="go('+(cur+1)+')">Далее →</button>';
+  } else {
+    h+='<button class="btn btn-send" id="sendBtn" onclick="send()">Отправить бриф ✓</button>';
+  }
+  h+='</div></div>';
+  el.innerHTML=h;
+}
+
+function onInp(id,el){
+  A[id]=el.value;
+  updProg();
+  const c=document.getElementById('card_'+id);
+  if(el.value.trim()) c.classList.add('filled'); else c.classList.remove('filled');
+  mkTabs();
+}
+
+function go(i){
+  cur=i; mkTabs(); mkForm();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+async function send(){
+  const btn=document.getElementById('sendBtn');
+  btn.disabled=true;
+  document.getElementById('sendingOverlay').classList.add('show');
+
+  if(SCRIPT_URL && SCRIPT_URL !== 'ВСТАВЬ_СЮДА_URL_GOOGLE_APPS_SCRIPT'){
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(A)
+      });
+    } catch(e) {
+      console.warn('Ошибка отправки:', e);
+    }
+  } else {
+    console.log('📋 Ответы брифа:', JSON.stringify(A, null, 2));
+    await new Promise(r=>setTimeout(r, 800));
+  }
+
+  document.getElementById('sendingOverlay').classList.remove('show');
+  document.getElementById('formArea').style.display='none';
+  document.getElementById('tabs').style.display='none';
+  document.getElementById('doneScreen').classList.add('show');
+  document.getElementById('pFill').style.width='100%';
+  document.getElementById('pText').textContent=TQ+' / '+TQ;
+}
+
+// init
+mkTabs(); mkForm(); updProg();
+</script>
+
+</body>
+</html>
